@@ -1,17 +1,17 @@
 /*
  * jsPlumb
- * 
+ *
  * Title:jsPlumb 2.0.2
- * 
+ *
  * Provides a way to visually connect elements on an HTML page, using SVG.
- * 
+ *
  * This file contains the core code.
  *
  * Copyright (c) 2010 - 2015 jsPlumb (hello@jsplumbtoolkit.com)
- * 
+ *
  * http://jsplumbtoolkit.com
  * http://github.com/sporritt/jsplumb
- * 
+ *
  * Dual licensed under the MIT and GPL2 licenses.
  */
 (function () {
@@ -398,7 +398,7 @@
         },
         setHoverPaintStyle: function (style, doNotRepaint) {
             //this._jsPlumb.hoverPaintStyle = jsPlumb.extend({}, style);
-// TODO figure out if we want components to clone paintStyle so as not to share it.		    	
+// TODO figure out if we want components to clone paintStyle so as not to share it.
             this._jsPlumb.hoverPaintStyle = style;
             _updateHoverStyle(this);
             if (!doNotRepaint) this.repaint();
@@ -426,8 +426,8 @@
                 this._jsPlumb.hover = hover;
 
                 if (this.canvas != null) {
+                    var method = hover ? "addClass" : "removeClass";
                     if (this._jsPlumb.instance.hoverClass != null) {
-                        var method = hover ? "addClass" : "removeClass";
                         this._jsPlumb.instance[method](this.canvas, this._jsPlumb.instance.hoverClass);
                     }
                     if (this._jsPlumb.hoverClass != null) {
@@ -2078,7 +2078,7 @@
             return new jsPlumb.DynamicAnchor({anchors: anchors, selector: anchorSelector, elementId: null, jsPlumbInstance: _currentInstance});
         };
 
-// --------------------- makeSource/makeTarget ---------------------------------------------- 
+// --------------------- makeSource/makeTarget ----------------------------------------------
 
         this.targetEndpointDefinitions = {};
         var _setEndpointPaintStylesAndAnchor = function (ep, epIndex, _instance) {
@@ -2667,7 +2667,7 @@
             return _setEnabled("target", el, state, null, connectionType);
         };
 
-// --------------------- end makeSource/makeTarget ---------------------------------------------- 				
+// --------------------- end makeSource/makeTarget ----------------------------------------------
 
         this.ready = function (fn) {
             _currentInstance.bind("ready", fn);
@@ -3045,9 +3045,9 @@
         }
     });
 
-// --------------------- static instance + AMD registration -------------------------------------------	
+// --------------------- static instance + AMD registration -------------------------------------------
 
-// create static instance and assign to window if window exists.	
+// create static instance and assign to window if window exists.
     var jsPlumb = new jsPlumbInstance();
     // register on window if defined (lets us run on server)
     if (typeof window != 'undefined') window.jsPlumb = jsPlumb;
@@ -3083,6 +3083,6 @@
     }
 
 
-// --------------------- end static instance + AMD registration -------------------------------------------		
+// --------------------- end static instance + AMD registration -------------------------------------------
 
 }).call(this);
